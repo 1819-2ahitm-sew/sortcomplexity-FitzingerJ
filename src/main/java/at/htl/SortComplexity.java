@@ -9,19 +9,24 @@ public class SortComplexity {
 
         int length;
         int amount;
+        long average = 0;
 
         System.out.print("Anzahl der zu sortierenden Arrays: ");
         amount = scanner.nextInt();
         System.out.print("Größe der Arrays: ");
         length = scanner.nextInt();
-
+        System.out.println();
         for (int i = 0; i < amount; i++) {
             if (i + 1 < 10) {
                 System.out.println("Laufzaeit zur Sortierung des  " + (i + 1) + ". Array: " + sortRandomArray(length) + " ms");
             } else{
                 System.out.println("Laufzaeit zur Sortierung des " + (i + 1) + ". Array: " + sortRandomArray(length) + " ms");
             }
+            average += sortRandomArray(length);
         }
+        average /= amount;
+        System.out.println();
+        System.out.print("Durchschnittliche Laufzeit: "+average+" ms");
     }
 
     // Sorts an array of random numbers and returns the sorting run time in ms
